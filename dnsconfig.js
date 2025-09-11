@@ -1,7 +1,7 @@
 var DSP_CF = NewDnsProvider("cf")
 var REG_CHANGEME = NewRegistrar("none")
 
-var MY_IP$ = FETCH("https://ip.wtf", { headers: { Accept: "text/plain" } }).then(function(res) { return res.text() })
+var MY_IP$ = FETCH("https://myip.wtf", { headers: { Accept: "text/plain", "User-Agent": "curl" } }).then(function(res) { return res.text() })
 MY_IP$.then(function(ip) {
 	ip = ip.trim()
 	D("pool.net.eu.org", REG_CHANGEME,
